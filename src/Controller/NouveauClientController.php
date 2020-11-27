@@ -25,4 +25,30 @@ class NouveauClientController extends AbstractController
 
         return $response;
     }
+
+    public function info1(string $prenom): Response
+    {
+        $response = new Response(
+            'Le nom est: '.$prenom,
+            200,
+            [
+                'Content-type' => 'text/plain'
+            ]
+        );
+
+        return $response;
+    }
+
+    public function info2(string $prenom): Response
+    {
+        $response = new Response(
+            'Le nom est: '.$prenom,
+            200,
+            [
+                'Content-type' => 'text/plain'
+            ]
+        );
+
+        return $response;
+    }
 }

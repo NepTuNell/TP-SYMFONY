@@ -1,9 +1,9 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-info:
-    path: /info/{prenom}
+info2:
+    path: /info2/{prenom}
     requirements: 
       prenom: '^[a-zA-Z][a-zA-Z|-]+[a-zA-Z]$'
-    controller: App\Controller\NouveauClientController::info
+    controller: App\Controller\NouveauClientController::info2
     methods: GET
