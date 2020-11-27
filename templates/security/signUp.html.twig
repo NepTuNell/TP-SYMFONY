@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter!{% endblock %}
+
+{% block body %}
+     
+    <div class="row d-flex flex-row justify-content-center align-items-center container_size_90_vh">
+        <div class="col-6" id="container_log"> 
+            {{ form_start(form, {'action': path('user_new'), 'method': 'post', 'attr': {'novalidate': 'novalidate'}}) }}
+                <h1 class="pb-5 text-center">Nouvel utilisateur</h1>
+                <div class="form-group row">
+                    {{ form_label(form.firstname, 'Nom', {'label_attr': {'class': 'col-4'} }) }}
+                    {{ form_widget(form.firstname, {'attr': {'class': 'form-control col-8'} }) }}
+                </div>
+                <div class="form-group row">
+                    {{ form_label(form.lastname, 'Prénom', {'label_attr': {'class': 'col-4'} }) }}
+                    {{ form_widget(form.lastname, {'attr': {'class': 'form-control col-8'} }) }}
+                </div>
+                <div class="form-group row">
+                    {{ form_label(form.username, 'Pseudo', {'label_attr': {'class': 'col-4'} }) }}
+                    {{ form_widget(form.username, {'attr': {'class': 'form-control col-8'} }) }}
+                </div>
+                <div class="form-group row">
+                    {{ form_label(form.date_of_birth, 'Date de naissance', {'label_attr': {'class': 'col-4'} }) }}
+                    {{ form_widget(form.date_of_birth, {'attr': {'class': 'col-8'} }) }}
+                </div>
+                <div class="form-group row">
+                    {{ form_label(form.email, 'Adresse email', {'label_attr': {'class': 'col-4'} }) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control col-8'} }) }}
+                </div>
+                <div class="form-group row">
+                    {{ form_label(form.password, 'Mot de passe', {'label_attr': {'class': 'col-4'} }) }}
+                    {{ form_widget(form.password, {'attr': {'class': 'form-control col-8'} }) }}
+                </div>
+                <div class="form-group row">
+                    {{ form_label(form.confirm_password, 'Confirmation', {'label_attr': {'class': 'col-4'} }) }}
+                    {{ form_widget(form.confirm_password, {'attr': {'class': 'form-control col-8'} }) }}
+                </div>
+                <div class="form-group row">
+                    <div class="col-12">
+                        <input class="btn btn-success" type="submit" value="Valider" />
+                        <a class="btn btn-secondary" href="{{path('home')}}">Retour</a>
+                    </div>
+                </div>
+            {{ form_end(form) }}
+            
+            <div><a class="text-success" href="{{path('app_login')}}">Déjà inscrit ?</a></div>
+            {{ include('component/information.html.twig') }}
+        </div>
+    </div>
+ 
+{% endblock %}

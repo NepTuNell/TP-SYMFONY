@@ -1,0 +1,29 @@
+ 
+{% if errors is defined and errors|length > 0 %}        
+    <div class="alert alert-danger" style="margin-top: 10%">
+        {% for error in errors %}
+            <div class="col-12 form-error text-center"> 
+                {{ error.message }} 
+            </div>
+        {% endfor %}
+    </div>   
+{% endif %}
+        
+{% if messages is defined and messages|length > 0 %}         
+    <div class="alert alert-danger" style="margin-top: 10%">
+        {% for message in messages %}
+            <div class="col-12 form-error text-center"> 
+                {{ message }} 
+            </div>
+        {% endfor %}
+    </div>  
+{% endif %}
+        
+{% for flash in app.flashes('success') %}     
+    <div class="alert alert-primary" style="margin-top: 10%"> 
+        <div class="col-12 text-center"> 
+            {{ flash }} 
+        </div>
+    </div>  
+{% endfor %}
+ 
