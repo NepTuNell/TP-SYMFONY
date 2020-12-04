@@ -11,38 +11,18 @@
         {% block stylesheets %}
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
             <!-- CSS personnel -->
             <link rel="stylesheet" href="{{ asset('css/baseLayout.css') }}" />
-
             <!-- Lien icone font awesome et CSS -->
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">  
         {% endblock %}
-
     </head>
     <body>
-        <div class="container-fluid">
-            <div class="row" id="container_user">
-                {% if not app.user %} 
-                    <div>
-                        <a href="{{path("app_login")}}" style="font-size: 1.6rem;">Se connecter</a>
-                    </div> 
-                {% else %} 
-                    <div>
-                        <a href="{{path("user_edit", {'id': app.user.id})}}" style="font-size: 1.6rem; margin-right: 10%; white-space: nowrap">Mon compte</a>
-                        <a href="{{path("app_logout")}}" style="font-size: 1.6rem; margin-right: 10%; white-space: nowrap">Se déconnecter</a>
-                    </div> 
-                    <div id="user_profile_avatar" class="justify-content-center">
-                        <div class="text-center text-uppercase font-weight-bold text-light">
-                            {{app.user.firstname|first}}{{app.user.lastname|first}}
-                        </div> 
-                    </div>  
-                {% endif %}
-            </div>
-            <div class="container"> 
-                {% block body %}
-                {% endblock %}
-            </div>
+        <div class="container-fluid"> 
+            {% block navbar %}
+            {% endblock %}
+            {% block body %}
+            {% endblock %}
         </div>
         {% block javascripts %}
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
