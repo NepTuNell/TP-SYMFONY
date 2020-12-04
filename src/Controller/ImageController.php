@@ -31,33 +31,11 @@ class ImageController extends AbstractController
     }
 
     /**
-     * @Route("/img/home1", name="image_home_1", methods={"GET"})
+     * @Route("/img/home", name="image_home", methods={"GET"})
      */
-    public function home1(): Response
+    public function home(): Response
     {
         return $this->render('image/home.html.twig');
-    }
-
-    /**
-     * @Route("/img/home2", name="image_home_2", methods={"GET"})
-     */
-    public function home2(): Response
-    {
-        $files = scandir($this->getPath());
-
-        $rootIndex = \array_search('.', $files);
-        if (false !== $rootIndex) {
-            unset($files[$rootIndex]);
-        }
-
-        $rootIndex = \array_search('..', $files);
-        if (false !== $rootIndex) {
-            unset($files[$rootIndex]);
-        }
-
-        return $this->render('image/home.html.twig', [
-            'files' => $files
-        ]);
     }
 
     /**
@@ -74,5 +52,27 @@ class ImageController extends AbstractController
         }
        
         return $response;
+    }
+
+    /**
+     * @Route("/img/home/dropdown", name="image_home_dropdown", methods={"GET"})
+     */
+    public function afficheDropDown()
+    {
+        $files = scandir($this->getPath());
+
+        $rootIndex = \array_search('.', $files);
+        if (false !== $rootIndex) {
+            unset($files[$rootIndex]);
+        }
+
+        $rootIndex = \array_search('..', $files);
+        if (false !== $rootIndex) {
+            unset($files[$rootIndex]);
+        }
+
+        return $this->render('component/_dropdown.html.twig', [
+            'files' => $files
+        ]);
     }
 }
