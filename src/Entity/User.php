@@ -12,6 +12,15 @@ use App\Repository\UserRepository;
 class User
 {
     /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     * 
+     * @var int
+     */
+    private $id;
+    
+    /**
      * @var string
      * @ORM\Column(type="string", length=255, unique=false, nullable=false)
      */
