@@ -3,21 +3,23 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserRepository;
 
 /**
- * @ORM\Table()
+ * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ORM\Table(name="User")
  */
 class User
 {
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255, unique=false, nullable=false)
      */
     private $login;
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255, unique=false, nullable=false)
      */
     private $password;
 
