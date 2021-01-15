@@ -3,7 +3,7 @@
 {% block title %}Se connecter!{% endblock %}
 
 {% block body %}
-    <div class="row d-flex flex-row justify-content-around align-items-center container_size_90_vh">
+    <div class="row d-flex flex-row justify-content-center align-items-center container_size_90_vh">
         {% if users is defined and users|length > 0 %}
             {% for user in users %}
                 <div style="font-size: 4em;">{{user.login}} ; </div>
