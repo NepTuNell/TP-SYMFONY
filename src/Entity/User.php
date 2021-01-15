@@ -3,20 +3,21 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- *
+ * @ORM\Table()
  */
 class User
 {
     /**
      * @var string
+     * @ORM\Column(type="string")
      */
     private $login;
 
     /**
      * @var string
+     * @ORM\Column(type="string")
      */
     private $password;
 
