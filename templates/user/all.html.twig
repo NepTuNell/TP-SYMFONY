@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="row d-flex flex-row justify-content-center align-items-center container_size_90_vh">
-        {% if users is defined an users|length > 0 %}
+        {% if users is defined and users|length > 0 %}
             {% for user in users %}
                 <div>{{user.login}}</div>
             {% endfor %}
