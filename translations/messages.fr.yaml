@@ -1,0 +1,5 @@
+Login:
+  login_blank: Veuillez saisir le login
+  password_blank: Veuillez saisir les mots de passe
+  password_invalid: Les mots de passe ne correspondent pas
+  password_pattern: Pattern invalide

@@ -1,0 +1,48 @@
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<div class="row d-flex flex-row justify-content-center align-items-center container_size_90_vh">
+    <div class="col-6" id="container_log"> 
+        <div class="col-12 mb-5 text-center" style="font-size: 2em">Connexion</div>
+        {{ form_start(form, {'method': 'post', 'attr': {'novalidate': 'novalidate'}}) }}
+            <div class="row mb-4">
+                {{ form_label(form.login, '', {'label_attr': {'class': 'col-4'} }) }}
+                {{ form_widget(form.login, {'attr': {'class': 'col-8'} }) }}
+            </div>
+            <div class="row mb-4">
+                {{ form_label(form.password.first, '', {'label_attr': {'class': 'col-4'} }) }}
+                {{ form_widget(form.password.first, {'attr': {'class': 'col-6'} }) }}
+            </div>
+            <div class="row mb-4">
+                {{ form_label(form.password.second, '', {'label_attr': {'class': 'col-4'} }) }}
+                {{ form_widget(form.password.second, {'attr': {'class': 'col-6'} }) }}
+            </div>
+            <div class="form-group row">
+                <div class="col-12">
+                    <input class="btn btn-success" type="submit" value="Valider" />
+                </div>
+            </div>
+        {{ form_end(form) }}
+        
+        {% if app.session.flashBag.has('error') %}       
+            <div class="alert alert-danger custom-flash">
+                {% for error in app.flashes('error') %}
+                    <div class="col-12 form-error text-center"> 
+                        {{ error|striptags }} 
+                    </div>
+                {% endfor %}
+            </div>   
+        {% endif %}
+
+        {% for flash in app.flashes('success') %}     
+            <div class="alert alert-primary custom-flash"> 
+                <div class="col-12 d-flex flex-row justify-content-center">
+                    <div class="col-12 text-center">
+                        {{ flash|striptags }} 
+                    </div>
+                    <button type="button" data-dismiss="alert" class="btn-close ml-auto mr-3" aria-label="Close"></button> 
+                </div>
+            </div>  
+        {% endfor %}
+    </div>
+</div>

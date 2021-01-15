@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter!{% endblock %}
+
+{% block body %}
+    <div class="row d-flex flex-row justify-content-center align-items-center container_size_90_vh">
+        <div class="col-6" id="container_log"> 
+            <div class="col-12 mb-5 text-center" style="font-size: 2em">Inscription</div>
+            {{ form_start(form, {'method': 'post', 'attr': {'novalidate': 'novalidate'}}) }}
+                <div class="row mb-4">
+                    {{ form_label(form.email, '', {'label_attr': {'class': 'col-4'} }) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'col-8'} }) }}
+                </div>
+                <div class="row mb-4">
+                    {{ form_label(form.password.first, '', {'label_attr': {'class': 'col-4'} }) }}
+                    {{ form_widget(form.password.first, {'attr': {'class': 'col-6'} }) }}
+                </div>
+                <div class="row mb-4">
+                    {{ form_label(form.password.second, '', {'label_attr': {'class': 'col-4'} }) }}
+                    {{ form_widget(form.password.second, {'attr': {'class': 'col-6'} }) }}
+                </div>
+                <div class="form-group row">
+                    <div class="col-12">
+                        <input class="btn btn-success" type="submit" value="Valider" />
+                    </div>
+                </div>
+            {{ form_end(form) }}
+            
+            {% if app.session.flashBag.has('error') %}       
+                <div class="alert alert-danger custom-flash">
+                    {% for error in app.flashes('error') %}
+                        <div class="col-12 form-error text-center"> 
+                            {{ error|striptags }} 
+                        </div>
+                    {% endfor %}
+                </div>   
+            {% endif %}
+        </div>
+    </div>
+ 
+{% endblock %}

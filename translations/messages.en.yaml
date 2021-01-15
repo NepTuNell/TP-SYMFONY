@@ -1,0 +1,5 @@
+Login:
+  login_blank: Login can't not be blank
+  password_blank: Password can't not be blank
+  password_invalid: Passwords are wrong
+  password_pattern: Pattern is not valid

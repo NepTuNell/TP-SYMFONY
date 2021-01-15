@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter!{% endblock %}
+
+{% block body %}
+    <div class="row d-flex flex-row justify-content-center align-items-center container_size_90_vh">
+        {% if users is defined an users|length > 0 %}
+            {% for user in users %}
+                <div>{{user.login}}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
